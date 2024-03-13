@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DISPLAY CONTACT</title>
+</head>
+<body>
+<h1>DISPLAY_CONTACT</h1>
+<div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>CATEGORY DETAILS</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+<!--                      <li class="dropdown">-->
+<!--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>-->
+<!--                       -->
+<!--                      </li>-->
+<!--                      <li><a class="close-link"><i class="fa fa-close"></i></a>-->
+<!--                      </li>-->
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+
+                          <th>Contact Name</th>
+                          <th>Email</th>
+                          <th>Subject</th>
+                          <th>Message</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                       {% for d in y %}
+                       <tr>
+                                          <td>{{d.contact_name}}</td>
+                                          <td>{{d.contact_email}}</td>
+                                          <td>{{d.contact_subject}}</td>
+                                          <td>{{d.contact_message}}</td>
+                                            <td>
+                                                <a href="{% url 'delete_contact' z_id=d.id %}">
+                                                  <button type="submit" class="btn btn-success">Delete</button>
+                                               </a>
+                                            </td>
+                                       </tr>
+                                    {% endfor %}
+
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+</body>
+</html>
+{% endblock %}
